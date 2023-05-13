@@ -3,6 +3,7 @@
 import Select from 'react-select';
 
 import useCountries from '@/app/hooks/useCountries';
+import ReactCountryFlag from 'react-country-flag';
 
 export type CountrySelectValue = {
   flag: string;
@@ -30,7 +31,12 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange })
         onChange={(value) => onChange(value as CountrySelectValue)}
         formatOptionLabel={(option: any) => (
           <div className='flex flex-row items-center gap-3'>
-            <div>{option.flag}</div>
+            <ReactCountryFlag
+              className='h-[1em] w-[1em]'
+              countryCode={option.value}
+              svg
+              aria-label={option.label}
+            />
             <div>
               {option.label},<span className='ml-1 text-neutral-500'>{option.region}</span>
             </div>
