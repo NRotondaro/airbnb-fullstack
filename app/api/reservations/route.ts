@@ -11,7 +11,6 @@ export async function POST(request: Request) {
   }
 
   const body = await request.json();
-
   const { listingId, startDate, endDate, totalPrice } = body;
 
   if (!listingId || !startDate || !endDate || !totalPrice) {
